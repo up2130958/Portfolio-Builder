@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/alex-morgan/"
+title = "Alex Morgan — Personal Site"
+version = "1.0.0"
+id = "artifacts/alex-morgan"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/alex-morgan/" ]
+localPort = 23179
+
+[services.development]
+run = "pnpm --filter @workspace/alex-morgan run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alex-morgan", "run", "build" ]
+publicDir = "artifacts/alex-morgan/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23179"
+BASE_PATH = "/alex-morgan/"
