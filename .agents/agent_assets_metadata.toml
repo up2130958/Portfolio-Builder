@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "OnHg6wI58aowDsHY6ZFjH"
+uri = "file://artifacts/mockup-sandbox/public/images/alex-portrait.png"
+type = "image"
+title = "Editorial portrait of engineer"
+
+[[generated]]
+id = "cU1qNzMtLHEZcBEDUwpJg"
+uri = "file://artifacts/mockup-sandbox/public/images/project-cloud.png"
+type = "image"
+title = "Abstract cloud architecture"
+
+[[generated]]
+id = "yeflMILYUXDavB3rbMKjo"
+uri = "file://artifacts/mockup-sandbox/public/images/project-data.png"
+type = "image"
+title = "Abstract data pipeline"
