@@ -1,97 +1,134 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code2, Server, Cpu, ExternalLink } from "lucide-react";
-
-const skills = [
-  { icon: <Server size={20} />, title: "Backend Engineering", items: ["Go", "Node.js", "Python", "PostgreSQL", "Redis"] },
-  { icon: <Code2 size={20} />, title: "Frontend Development", items: ["React", "TypeScript", "Vite", "Tailwind CSS"] },
-  { icon: <Cpu size={20} />, title: "Infrastructure", items: ["Kubernetes", "Docker", "Terraform", "AWS", "CI/CD"] },
-];
+import { ArrowRight, Cloud, Database, Terminal } from "lucide-react";
 
 export default function Home() {
   return (
     <div>
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-24 pb-20">
-        <div className="max-w-3xl">
-          <p className="font-mono text-teal-400 text-sm mb-4 tracking-wide">Hi, my name is</p>
-          <h1 className="text-5xl sm:text-6xl font-bold text-slate-100 mb-3 leading-tight">
-            Alex Morgan.
+      {/* Hero */}
+      <section className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto pt-12 md:pt-24 pb-20 md:pb-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center border-b border-[#2A2A2A]/10">
+        <div className="lg:col-span-7 z-10">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-['Playfair_Display'] font-black leading-[0.9] tracking-tighter mb-8">
+            The Art of <br />
+            <span className="text-[#722F37] italic font-normal">Scale.</span>
           </h1>
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-400 mb-6 leading-tight">
-            I build things for the internet.
-          </h2>
-          <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mb-10">
-            Software engineer specializing in distributed systems, cloud-native architecture,
-            and developer tooling. I enjoy solving hard infrastructure problems and shipping
-            software that scales to millions of users.
+          <p className="text-xl md:text-2xl text-[#5C5C5C] font-['Merriweather'] leading-relaxed max-w-2xl mb-10">
+            Alex Morgan is a San Francisco-based software engineer designing the invisible infrastructure that powers modern applications.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-[#2A2A2A] text-[#FDFBF7] px-7 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#722F37] transition-colors duration-300"
             >
-              View my work <ArrowRight size={16} />
+              View Work <ArrowRight size={14} />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border border-teal-600 text-teal-400 hover:bg-teal-600/10 font-medium px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 border border-[#2A2A2A]/30 text-[#2A2A2A] px-7 py-3 text-xs font-bold uppercase tracking-widest hover:border-[#722F37] hover:text-[#722F37] transition-colors duration-300"
             >
-              Get in touch
+              Get in Touch
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className="border-t border-slate-800 bg-slate-900/50">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-slate-300 text-2xl font-bold mb-10">Technical expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {skills.map((skill) => (
-              <div key={skill.title} className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-teal-800 transition-colors">
-                <div className="text-teal-400 mb-3">{skill.icon}</div>
-                <h3 className="text-slate-100 font-semibold mb-3">{skill.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skill.items.map((item) => (
-                    <span key={item} className="text-xs font-mono bg-slate-800 text-slate-400 px-2 py-1 rounded">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+        <div className="lg:col-span-5 relative">
+          <div className="aspect-[3/4] w-full max-w-md mx-auto relative group">
+            <div className="absolute inset-0 bg-[#722F37] translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 mix-blend-multiply opacity-20" />
+            <img
+              src="/alex-portrait.png"
+              alt="Alex Morgan"
+              className="w-full h-full object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+            />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-slate-300 text-2xl font-bold">Featured work</h2>
-          <Link to="/projects" className="inline-flex items-center gap-1 text-teal-400 hover:text-teal-300 text-sm font-medium transition-colors">
-            All projects <ExternalLink size={14} />
-          </Link>
+      {/* Expertise */}
+      <section className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto py-24 border-b border-[#2A2A2A]/10">
+        <div className="mb-12">
+          <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#5C5C5C] mb-3">Areas of Expertise</p>
+          <div className="w-12 h-px bg-[#722F37]" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {[
             {
-              title: "Cloud-Native Microservices",
-              desc: "Production-grade microservices on Kubernetes handling 10M+ daily requests.",
-              tags: ["Go", "Kubernetes", "PostgreSQL"],
+              icon: <Cloud className="w-6 h-6 text-[#722F37] mb-4" />,
+              title: "Cloud-Native",
+              desc: "Kubernetes, Terraform, AWS, Docker. Orchestrating chaos into reliable platforms that scale without drama.",
             },
             {
-              title: "Real-Time Analytics",
-              desc: "Data pipeline ingesting 500k events/min from IoT devices with sub-second latency.",
-              tags: ["Kafka", "ClickHouse", "React"],
+              icon: <Database className="w-6 h-6 text-[#722F37] mb-4" />,
+              title: "Distributed Data",
+              desc: "Kafka, Redis, PostgreSQL. Designing pipelines that handle massive scale without breaking a sweat.",
             },
-          ].map((p) => (
-            <div key={p.title} className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-teal-800 transition-colors">
-              <h3 className="text-slate-100 font-semibold text-lg mb-2">{p.title}</h3>
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed">{p.desc}</p>
-              <div className="flex gap-2">
-                {p.tags.map((t) => (
-                  <span key={t} className="text-xs font-mono bg-slate-800 text-teal-400 px-2 py-1 rounded">{t}</span>
-                ))}
-              </div>
+            {
+              icon: <Terminal className="w-6 h-6 text-[#722F37] mb-4" />,
+              title: "Developer Tooling",
+              desc: "Go, Rust, Node.js. Crafting CLIs and internal tools with obsessive attention to developer experience.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="border-t border-[#2A2A2A]/20 pt-6">
+              {item.icon}
+              <h3 className="font-['Playfair_Display'] font-bold text-xl mb-2">{item.title}</h3>
+              <p className="text-sm text-[#5C5C5C] leading-relaxed font-['Merriweather']">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto py-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#5C5C5C] mb-3">Selected Work</p>
+            <h2 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold">The Archive.</h2>
+          </div>
+          <Link
+            to="/projects"
+            className="hidden md:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#722F37] hover:gap-4 transition-all mt-6 md:mt-0"
+          >
+            All Projects <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        <div className="space-y-32">
+          <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+            <div className="lg:col-span-7 overflow-hidden bg-[#F0EDE8]">
+              <img
+                src="/project-cloud.png"
+                alt="Cloud Platform"
+                className="w-full aspect-[16/9] object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            <div className="lg:col-span-4 lg:col-start-9 flex flex-col justify-center">
+              <span className="text-[#722F37] font-bold text-xs tracking-widest uppercase mb-4">01 — Infrastructure</span>
+              <h3 className="text-4xl font-['Playfair_Display'] font-bold mb-5">KubeFlow Core</h3>
+              <p className="text-[#5C5C5C] leading-relaxed mb-8 font-['Merriweather'] text-sm">
+                A declarative infrastructure platform that abstracted Kubernetes complexity for 200+ product engineers, reducing deployment times by 40%.
+              </p>
+              <div className="flex gap-4 text-xs font-bold uppercase tracking-widest text-[#2A2A2A]">
+                <span>Go</span><span>Kubernetes</span><span>Terraform</span>
+              </div>
+            </div>
+          </article>
+
+          <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group">
+            <div className="lg:col-span-7 lg:col-start-6 overflow-hidden bg-[#F0EDE8] lg:order-2">
+              <img
+                src="/project-data.png"
+                alt="Data Pipeline"
+                className="w-full aspect-[16/9] object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            <div className="lg:col-span-4 lg:col-start-1 flex flex-col justify-center lg:order-1">
+              <span className="text-[#722F37] font-bold text-xs tracking-widest uppercase mb-4">02 — Data Systems</span>
+              <h3 className="text-4xl font-['Playfair_Display'] font-bold mb-5">StreamWeaver</h3>
+              <p className="text-[#5C5C5C] leading-relaxed mb-8 font-['Merriweather'] text-sm">
+                An open-source real-time event processing engine built in Rust. Handles millions of events per second with sub-millisecond latency.
+              </p>
+              <div className="flex gap-4 text-xs font-bold uppercase tracking-widest text-[#2A2A2A]">
+                <span>Rust</span><span>Kafka</span><span>gRPC</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
     </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Mail } from "lucide-react";
 
 interface FormData {
   name: string;
@@ -83,13 +83,13 @@ export default function Contact() {
 
   if (status === "success") {
     return (
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <CheckCircle size={48} className="text-teal-400 mx-auto mb-4" />
-        <h1 className="text-3xl font-bold text-slate-100 mb-3">Message sent!</h1>
-        <p className="text-slate-400 mb-8">Thank you for reaching out. I'll get back to you as soon as I can.</p>
+      <div className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto py-32 text-center">
+        <CheckCircle size={48} className="text-[#722F37] mx-auto mb-6" />
+        <h1 className="text-4xl font-['Playfair_Display'] font-bold text-[#2A2A2A] mb-4">Message sent.</h1>
+        <p className="text-[#5C5C5C] font-['Merriweather'] mb-8">Thank you for reaching out. I'll be in touch soon.</p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-teal-400 hover:text-teal-300 font-medium transition-colors"
+          className="text-xs font-bold uppercase tracking-widest text-[#722F37] hover:underline transition-colors"
         >
           Send another message
         </button>
@@ -98,39 +98,48 @@ export default function Contact() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div>
-          <h1 className="text-4xl font-bold text-slate-100 mb-4">Get in touch</h1>
-          <p className="text-slate-400 leading-relaxed mb-8">
-            I'm always open to interesting conversations — whether it's about a potential project,
-            a job opportunity, or just want to say hello. My inbox is open.
+    <div className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto py-20">
+      {/* Header */}
+      <div className="border-b border-[#2A2A2A]/10 pb-16 mb-16">
+        <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#5C5C5C] mb-3">Get in Touch</p>
+        <div className="w-12 h-px bg-[#722F37] mb-8" />
+        <h1 className="text-5xl md:text-7xl font-['Playfair_Display'] font-black leading-tight">
+          Let's build something <span className="italic font-normal text-[#722F37]">meaningful.</span>
+        </h1>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="lg:col-span-4">
+          <p className="font-['Merriweather'] text-[#5C5C5C] leading-relaxed mb-10">
+            Currently accepting new opportunities. Whether it's a massive system redesign or just grabbing coffee in the Mission, my inbox is open.
           </p>
-          <div className="space-y-4">
-            <div>
-              <p className="text-slate-500 text-sm uppercase tracking-wide mb-1">Email</p>
-              <a href="mailto:alex@example.com" className="text-teal-400 hover:text-teal-300 transition-colors">alex@example.com</a>
+          <div className="space-y-5">
+            <div className="border-t border-[#2A2A2A]/15 pt-5">
+              <p className="text-xs uppercase tracking-widest font-bold text-[#5C5C5C] mb-1">Email</p>
+              <a href="mailto:alex@example.com" className="text-[#722F37] font-bold hover:underline flex items-center gap-2">
+                <Mail size={14} /> alex@example.com
+              </a>
             </div>
-            <div>
-              <p className="text-slate-500 text-sm uppercase tracking-wide mb-1">Location</p>
-              <p className="text-slate-300">San Francisco, CA</p>
+            <div className="border-t border-[#2A2A2A]/15 pt-5">
+              <p className="text-xs uppercase tracking-widest font-bold text-[#5C5C5C] mb-1">Location</p>
+              <p className="text-[#2A2A2A] font-bold font-['Playfair_Display']">San Francisco, CA</p>
             </div>
-            <div>
-              <p className="text-slate-500 text-sm uppercase tracking-wide mb-1">Response time</p>
-              <p className="text-slate-300">Usually within 24 hours</p>
+            <div className="border-t border-[#2A2A2A]/15 pt-5">
+              <p className="text-xs uppercase tracking-widest font-bold text-[#5C5C5C] mb-1">Response time</p>
+              <p className="text-[#2A2A2A] font-bold">Usually within 24 hours</p>
             </div>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        <form onSubmit={handleSubmit} noValidate className="lg:col-span-8 space-y-6">
           {serverError && (
-            <div className="flex items-start gap-3 bg-red-900/20 border border-red-800 rounded-xl p-4 text-red-400 text-sm">
+            <div className="flex items-start gap-3 border border-[#722F37]/30 bg-[#722F37]/5 p-4 text-[#722F37] text-sm font-['Merriweather']">
               <AlertCircle size={16} className="mt-0.5 shrink-0" />
               {serverError}
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Field label="Name" error={errors.name}>
               <input
                 type="text"
@@ -170,7 +179,7 @@ export default function Contact() {
               value={form.message}
               onChange={handleChange}
               placeholder="Your message..."
-              rows={6}
+              rows={7}
               className={inputClass(!!errors.message) + " resize-none"}
             />
           </Field>
@@ -178,16 +187,16 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium px-6 py-3 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2A2A2A] text-[#FDFBF7] px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#722F37] disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
           >
             {status === "submitting" ? (
               <>
-                <span className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />
+                <span className="animate-spin w-3 h-3 border-2 border-white/30 border-t-white rounded-full" />
                 Sending...
               </>
             ) : (
               <>
-                <Send size={16} /> Send message
+                <Send size={14} /> Send Message
               </>
             )}
           </button>
@@ -198,10 +207,10 @@ export default function Contact() {
 }
 
 function inputClass(hasError: boolean) {
-  return `w-full bg-slate-900 border rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 transition-colors ${
+  return `w-full bg-white border font-['Lato'] px-4 py-3 text-[#2A2A2A] placeholder-[#9C9C9C] focus:outline-none focus:ring-1 transition-colors text-sm ${
     hasError
-      ? "border-red-700 focus:ring-red-700/50"
-      : "border-slate-700 focus:ring-teal-600/50 focus:border-teal-700"
+      ? "border-[#722F37] focus:ring-[#722F37]/30"
+      : "border-[#2A2A2A]/20 focus:ring-[#2A2A2A]/30 focus:border-[#2A2A2A]/40"
   }`;
 }
 
@@ -216,9 +225,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-slate-400 text-sm font-medium mb-1.5">{label}</label>
+      <label className="block text-xs font-bold uppercase tracking-widest text-[#5C5C5C] mb-2">{label}</label>
       {children}
-      {error && <p className="text-red-400 text-xs mt-1">{error}</p>}
+      {error && <p className="text-[#722F37] text-xs mt-1 font-bold">{error}</p>}
     </div>
   );
 }

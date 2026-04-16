@@ -83,41 +83,40 @@ export default function Admin() {
 
   if (!state.loggedIn) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center px-4">
         <div className="w-full max-w-md">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-600/20 rounded-xl mb-4">
-              <Lock size={24} className="text-teal-400" />
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center justify-center w-12 h-12 border border-[#722F37]/30 mb-6">
+              <Lock size={20} className="text-[#722F37]" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-100">Admin login</h1>
-            <p className="text-slate-500 text-sm mt-1">Sign in to view contact submissions</p>
+            <h1 className="text-3xl font-['Playfair_Display'] font-bold text-[#2A2A2A]">Admin</h1>
+            <p className="text-[#5C5C5C] text-sm mt-1 font-['Merriweather']">Sign in to view contact submissions</p>
           </div>
 
-          <form onSubmit={handleLogin} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-4">
+          <form onSubmit={handleLogin} className="bg-white border border-[#2A2A2A]/10 p-8 space-y-5">
             {loginError && (
-              <div className="flex items-center gap-2 text-red-400 text-sm bg-red-900/20 border border-red-800 rounded-lg px-4 py-3">
-                <AlertCircle size={14} />
-                {loginError}
+              <div className="flex items-center gap-2 text-[#722F37] text-sm border border-[#722F37]/30 bg-[#722F37]/5 px-4 py-3 font-['Merriweather']">
+                <AlertCircle size={14} /> {loginError}
               </div>
             )}
             <div>
-              <label className="block text-slate-400 text-sm font-medium mb-1.5">Username</label>
+              <label className="block text-xs font-bold uppercase tracking-widest text-[#5C5C5C] mb-2">Username</label>
               <input
                 type="text"
                 value={loginForm.username}
                 onChange={(e) => setLoginForm((f) => ({ ...f, username: e.target.value }))}
-                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-600/50 focus:border-teal-700 transition-colors"
+                className="w-full border border-[#2A2A2A]/20 px-4 py-2.5 text-[#2A2A2A] text-sm focus:outline-none focus:ring-1 focus:ring-[#2A2A2A]/30"
                 placeholder="admin"
                 autoComplete="username"
               />
             </div>
             <div>
-              <label className="block text-slate-400 text-sm font-medium mb-1.5">Password</label>
+              <label className="block text-xs font-bold uppercase tracking-widest text-[#5C5C5C] mb-2">Password</label>
               <input
                 type="password"
                 value={loginForm.password}
                 onChange={(e) => setLoginForm((f) => ({ ...f, password: e.target.value }))}
-                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-600/50 focus:border-teal-700 transition-colors"
+                className="w-full border border-[#2A2A2A]/20 px-4 py-2.5 text-[#2A2A2A] text-sm focus:outline-none focus:ring-1 focus:ring-[#2A2A2A]/30"
                 placeholder="••••••••"
                 autoComplete="current-password"
               />
@@ -125,12 +124,12 @@ export default function Admin() {
             <button
               type="submit"
               disabled={loginMutation.isPending}
-              className="w-full flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white font-medium py-2.5 rounded-lg transition-colors"
+              className="w-full flex items-center justify-center gap-2 bg-[#2A2A2A] text-[#FDFBF7] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#722F37] disabled:opacity-60 transition-colors duration-300"
             >
               {loginMutation.isPending ? (
-                <span className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />
+                <span className="animate-spin w-3 h-3 border-2 border-white/30 border-t-white rounded-full" />
               ) : (
-                <LogIn size={16} />
+                <LogIn size={14} />
               )}
               Sign in
             </button>
@@ -141,81 +140,83 @@ export default function Admin() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <header className="border-b border-slate-800 bg-slate-950">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div className="min-h-screen bg-[#FDFBF7] text-[#2A2A2A] font-['Lato']">
+      <header className="border-b border-[#2A2A2A]/10 bg-[#FDFBF7]">
+        <div className="mx-auto max-w-5xl px-6 md:px-12 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Mail size={18} className="text-teal-400" />
-            <span className="font-semibold">Contact submissions</span>
+            <Mail size={16} className="text-[#722F37]" />
+            <span className="font-bold text-sm uppercase tracking-widest">Contact Submissions</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-slate-500 text-sm">{state.username}</span>
+            <span className="text-[#5C5C5C] text-xs">{state.username}</span>
             <button
               onClick={() => logoutMutation.mutate()}
-              className="flex items-center gap-1.5 text-slate-400 hover:text-slate-100 text-sm transition-colors"
+              className="flex items-center gap-1.5 text-[#5C5C5C] hover:text-[#722F37] text-xs font-bold uppercase tracking-widest transition-colors"
             >
-              <LogOut size={14} /> Sign out
+              <LogOut size={12} /> Sign out
             </button>
           </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
+      <main className="mx-auto max-w-5xl px-6 md:px-12 py-10">
         {contactsQuery.isLoading && (
           <div className="space-y-3">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className="bg-slate-900 border border-slate-800 rounded-xl p-5 animate-pulse">
-                <div className="h-4 bg-slate-700 rounded w-1/3 mb-2" />
-                <div className="h-3 bg-slate-800 rounded w-1/2" />
+              <div key={i} className="border border-[#2A2A2A]/10 bg-white p-6 animate-pulse">
+                <div className="h-4 bg-[#2A2A2A]/10 rounded w-1/3 mb-2" />
+                <div className="h-3 bg-[#2A2A2A]/8 rounded w-1/2" />
               </div>
             ))}
           </div>
         )}
 
         {contactsQuery.error && (
-          <div className="bg-red-900/20 border border-red-800 rounded-xl p-6 text-red-400 text-sm">
+          <div className="border border-[#722F37]/30 bg-[#722F37]/5 p-6 text-[#722F37] text-sm font-['Merriweather']">
             Failed to load contact submissions.
           </div>
         )}
 
         {contactsQuery.data && contactsQuery.data.length === 0 && (
-          <div className="text-center py-20 text-slate-500">
-            <Mail size={40} className="mx-auto mb-4 opacity-40" />
-            <p>No contact submissions yet.</p>
+          <div className="text-center py-24 text-[#5C5C5C]">
+            <Mail size={40} className="mx-auto mb-4 opacity-30" />
+            <p className="font-['Merriweather']">No contact submissions yet.</p>
           </div>
         )}
 
         {contactsQuery.data && contactsQuery.data.length > 0 && (
-          <div className="space-y-3">
-            <p className="text-slate-500 text-sm mb-6">
+          <div>
+            <p className="text-xs uppercase tracking-widest font-bold text-[#5C5C5C] mb-6">
               {contactsQuery.data.length} submission{contactsQuery.data.length !== 1 ? "s" : ""} total
             </p>
-            {contactsQuery.data.map((contact) => (
-              <div key={contact.id} className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-slate-700 transition-colors">
-                <button
-                  className="w-full flex items-start justify-between p-5 text-left"
-                  onClick={() => setExpandedId(expandedId === contact.id ? null : contact.id)}
-                >
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-slate-100 font-medium">{contact.name}</span>
-                      <span className="text-teal-400 text-sm">{contact.email}</span>
+            <div className="divide-y divide-[#2A2A2A]/10 border border-[#2A2A2A]/10 bg-white">
+              {contactsQuery.data.map((contact) => (
+                <div key={contact.id}>
+                  <button
+                    className="w-full flex items-start justify-between p-5 text-left hover:bg-[#FDFBF7] transition-colors"
+                    onClick={() => setExpandedId(expandedId === contact.id ? null : contact.id)}
+                  >
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-3 mb-1">
+                        <span className="font-bold text-[#2A2A2A] font-['Playfair_Display']">{contact.name}</span>
+                        <span className="text-[#722F37] text-sm">{contact.email}</span>
+                      </div>
+                      <p className="text-[#5C5C5C] text-sm">{contact.subject}</p>
                     </div>
-                    <p className="text-slate-400 text-sm">{contact.subject}</p>
-                  </div>
-                  <span className="text-slate-600 text-xs font-mono ml-4 shrink-0">
-                    {new Date(contact.createdAt).toLocaleDateString("en-US", {
-                      year: "numeric", month: "short", day: "numeric",
-                    })}
-                  </span>
-                </button>
-                {expandedId === contact.id && (
-                  <div className="border-t border-slate-800 px-5 pb-5 pt-4">
-                    <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-wrap">{contact.message}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+                    <span className="text-[#5C5C5C] text-xs font-bold uppercase tracking-widest ml-4 shrink-0">
+                      {new Date(contact.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric", month: "short", day: "numeric",
+                      })}
+                    </span>
+                  </button>
+                  {expandedId === contact.id && (
+                    <div className="border-t border-[#2A2A2A]/10 px-5 pb-5 pt-4 bg-[#FDFBF7]">
+                      <p className="text-[#2A2A2A] text-sm leading-relaxed font-['Merriweather'] whitespace-pre-wrap">{contact.message}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </main>
