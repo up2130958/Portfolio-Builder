@@ -1,10 +1,10 @@
 const experience = [
   {
-    role: "Senior Software Engineer",
-    company: "Acme Corp",
-    period: "2022 — Present",
+    role: "AI Systems Analyst",
+    company: "Bell-Integration",
+    period: "2024 — Present",
     description:
-      "Lead engineer on the platform team. Redesigned the core data pipeline to handle 5x traffic growth, improved p99 latency by 60%, and mentored a team of 4 engineers.",
+      "Platform support engineer on the AI and Data team. Redesigned the core data pipeline to handle 5x traffic growth, improved p99 latency by 60%, and mentored a team of 4 engineers.",
     tags: ["Go", "Kubernetes", "PostgreSQL", "Redis"],
   },
   {
