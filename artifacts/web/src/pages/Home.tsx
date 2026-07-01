@@ -12,7 +12,7 @@ export default function Home() {
             <span className="text-[#722F37] italic font-normal">Scale.</span>
           </h1>
           <p className="text-xl md:text-2xl text-[#5C5C5C] font-['Merriweather'] leading-relaxed max-w-2xl mb-10">
-            Alex Morgan is a San Francisco-based software engineer designing the invisible infrastructure that powers modern applications.
+            Gabriel Ovie is a UK-based DEVOPS engineer designing the invisible infrastructure that powers modern applications.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
