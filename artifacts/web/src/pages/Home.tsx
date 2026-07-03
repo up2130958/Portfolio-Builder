@@ -25,7 +25,7 @@ export default function Home() {
               to="/contact"
               className="inline-flex items-center gap-2 border border-[#2A2A2A]/30 text-[#2A2A2A] px-7 py-3 text-xs font-bold uppercase tracking-widest hover:border-[#722F37] hover:text-[#722F37] transition-colors duration-300"
             >
-              Get in Touch
+              Please Reach out for a chat
             </Link>
           </div>
         </div>
