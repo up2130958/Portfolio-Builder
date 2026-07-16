@@ -20,5 +20,8 @@ jobs:
     - name: Install Dep
       run: pnpm install --no-frozen-lockfile
 
-    - name: Validate build
-      run: pnpm run build 
+   
+    - name: Validate Application Code Build
+      env:
+          PORT: 3000
+        run: pnpm run build
