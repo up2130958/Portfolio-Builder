@@ -21,4 +21,4 @@ jobs:
       run: pnpm install --no-frozen-lockfile
 
     - name: Validate build
-      run: pnpm run build
+      run: pnpm run build 
