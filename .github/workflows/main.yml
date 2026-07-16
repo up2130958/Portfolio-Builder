@@ -4,5 +4,16 @@ jobs:
   run-checks:
     runs-on: ubuntu-latest
     steps:
-    - name: Test
-      run:  echo "Tests Passed"
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: setup Node Runtime
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Dep
+      run: npm install
+
+    - name: Validate build
+      run: npm run build
