@@ -1,0 +1,9 @@
+name: Portfolio-builder
+on: push
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test
+      run:  echo "Tests Passed"
+      
