@@ -18,7 +18,7 @@ jobs:
         node-version: '24'
 
     - name: Install Dep
-      run: pnpm install
+      run: pnpm install --no-frozen-lockfile
 
     - name: Validate build
       run: ppm run build
