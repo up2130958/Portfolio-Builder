@@ -1,6 +1,6 @@
 import { db, projectsTable, adminsTable } from "@workspace/db";
 import bcrypt from "bcryptjs";
-import { logger } from "../../artifacts/api-server/src/lib/logger.js";
+
 
 async function seed() {
   logger.info("Starting seed...");
