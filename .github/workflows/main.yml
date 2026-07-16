@@ -24,4 +24,4 @@ jobs:
     - name: Validate Application Code Build
       env:
           PORT: 3000
-        run: pnpm run build
+      run: pnpm run build
