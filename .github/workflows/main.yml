@@ -26,3 +26,9 @@ jobs:
           PORT: 3000
           BASE_PATH: PRODUCTION
       run: pnpm run build
+    - name: Scan Repository for Security Vulnerabilities
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs' # 'fs' means File System
+        format: 'table'
+        exit-code: '0' # '0' means log the warnings but don't crash the pipeline yet while we are learning
